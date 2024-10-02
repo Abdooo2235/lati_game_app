@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lati_game_app/screens/home_screen.dart';
+import 'package:lati_game_app/main.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,10 +16,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context,
-          CupertinoPageRoute(
-              builder: (context) =>
-                  const HomeScreen())); // Navigate to Home Page after 3 seconds
+        context,
+        CupertinoPageRoute(builder: (context) => const ScreenRoute()),
+      );
     });
     super.initState();
   }
@@ -29,10 +28,11 @@ class _SplashScreenState extends State<SplashScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
-          child: Image.asset(
-        "assets/gamifyLogo_R.png",
-        width: size.width * 0.66,
-      )),
+        child: Image.asset(
+          "assets/GameTime.png",
+          width: size.width * 0.66,
+        ),
+      ),
     );
   }
 }

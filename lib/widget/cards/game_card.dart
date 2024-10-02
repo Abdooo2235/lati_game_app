@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lati_game_app/screens/game_details_screen.dart';
-
 import '../../models/game_model.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +17,7 @@ class GameCard extends StatelessWidget {
           context,
           CupertinoPageRoute(
             builder: (context) => GameDetailsScreen(
-              gameId: gameModel.id.toString(),
+              gameId: gameModel.id,
             ),
           ),
         );

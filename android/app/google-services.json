@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "637297847938",
+    "project_id": "lati-games-30041",
+    "storage_bucket": "lati-games-30041.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637297847938:android:ffa41600803aecb290ce9b",
+        "android_client_info": {
+          "package_name": "com.example.lati_game_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFrf2XW5Mv8jbvyTNf4KS3HHrVVNJTWbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

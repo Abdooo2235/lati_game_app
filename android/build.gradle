@@ -16,3 +16,23 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
+def minSdkVersion  = localProperties.getProperty("flutter.minSdkVersion ")
+    if (minSdkVersion  == null) {
+        minSdkVersion  = "23"
+}
+def targetSdkVersion =
+localProperties.getProperty("flutter.targetSdkVersion")
+    if (targetSdkVersion == null) {
+        targetSdkVersion = "28"
+    }
+android {
+  
+    defaultConfig {
+        minSdk = minSdkVersion.toInteger()
+        targetSdk = targetSdkVersion.toInteger()
+       }
+}
