@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // API
-String baseUrl = '';
+String baseUrl = 'https://www.freetogame.com/api';
 
 // COLORS
 const Color redColor = Color(0xffDD5A65);

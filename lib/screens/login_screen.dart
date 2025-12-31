@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lati_game_app/clickables.dart/main_button.dart';
 import 'package:lati_game_app/helpers/const.dart';
 import 'package:lati_game_app/main.dart';
 import 'package:lati_game_app/providers/auth_provider.dart';
+import 'package:lati_game_app/screens/register_screen.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -80,27 +82,46 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 12,
                   ),
                   MainButton(
-                      label: "Login",
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          Provider.of<AuthenticationProvider>(context,
-                                  listen: false)
-                              .login(
-                                  emailController.text, passwordController.text)
-                              .then((loggedIn) {
-                            if (loggedIn) {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) =>
-                                          const ScreenRoute()),
-                                  (route) => false);
-                            } else {
-                              print("Login failed");
-                            }
-                          });
+                    label: "Login",
+                    onPressed: () async {
+                      if (formKey.currentState!.validate()) {
+                        final loggedIn = await Provider.of<
+                                AuthenticationProvider>(context, listen: false)
+                            .login(
+                                emailController.text, passwordController.text);
+
+                        if (!mounted) return;
+
+                        if (loggedIn) {
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              CupertinoPageRoute(
+                                  builder: (context) => const ScreenRoute()),
+                              (route) => false);
+                        } else {
+                          if (kDebugMode) {
+                            print("Login failed");
+                          }
                         }
-                      }),
+                      }
+                    },
+                    btnColor: Colors.blue,
+                    txtColor: Colors.white,
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  MainButton(
+                    label: "Create account",
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          CupertinoPageRoute(
+                              builder: (context) => const RegisterScreen()));
+                    },
+                    btnColor: Colors.grey,
+                    txtColor: Colors.white,
+                  ),
                 ],
               ),
             ),
