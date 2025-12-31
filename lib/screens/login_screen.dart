@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lati_game_app/clickables.dart/main_button.dart';
 import 'package:lati_game_app/helpers/const.dart';
@@ -81,24 +82,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   MainButton(
                       label: "Login",
-                      onPressed: () {
+                      onPressed: () async {
                         if (formKey.currentState!.validate()) {
-                          Provider.of<AuthenticationProvider>(context,
-                                  listen: false)
-                              .login(
-                                  emailController.text, passwordController.text)
-                              .then((loggedIn) {
-                            if (loggedIn) {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  CupertinoPageRoute(
-                                      builder: (context) =>
-                                          const ScreenRoute()),
-                                  (route) => false);
-                            } else {
+                          final loggedIn =
+                              await Provider.of<AuthenticationProvider>(context,
+                                      listen: false)
+                                  .login(emailController.text,
+                                      passwordController.text);
+                          if (!context.mounted) return;
+
+                          if (loggedIn) {
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) => const ScreenRoute()),
+                                (route) => false);
+                          } else {
+                            if (kDebugMode) {
                               print("Login failed");
                             }
-                          });
+                          }
                         }
                       }),
                 ],

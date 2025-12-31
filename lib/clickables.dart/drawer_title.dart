@@ -27,7 +27,7 @@ class DrawerTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   color: darkModeConsumer.isDark
                       ? Colors.white24
-                      : Colors.blue.withOpacity(0.1)),
+                      : Colors.blue.withValues(alpha: 0.1)),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
