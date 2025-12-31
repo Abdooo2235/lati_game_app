@@ -7,9 +7,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:637297847938:android:ffa41600803aecb290ce9b",
+        "mobilesdk_app_id": "1:637297847938:android:8e1741332d9d67b290ce9b",
         "android_client_info": {
           "package_name": "com.example.lati_game_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFrf2XW5Mv8jbvyTNf4KS3HHrVVNJTWbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637297847938:android:ffa41600803aecb290ce9b",
+        "android_client_info": {
+          "package_name": "com.lati_game_app.app"
         }
       },
       "oauth_client": [],

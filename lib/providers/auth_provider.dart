@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lati_game_app/providers/base_provider.dart';
 
@@ -25,6 +26,10 @@ class AuthenticationProvider extends BaseProvider {
     UserCredential userCred = await firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
     if (userCred.user != null) {
+      FirebaseFirestore Firestore = FirebaseFirestore.instance;
+      Firestore.collection("users")add(
+        "email": email,
+        "user_uid": userCred.user.user!.uid);
       return true;
     } else {
       return false;

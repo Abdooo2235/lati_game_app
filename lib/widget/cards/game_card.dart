@@ -22,6 +22,32 @@ class GameCard extends StatelessWidget {
           ),
         );
       },
+      onLongPress: () {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text("Favorites"),
+                content: const Text(
+                    "Are you sure you want to add this game to favorite"),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      // TODO: Implement game purchase functionality
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Purchase'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Close'),
+                  ),
+                ],
+              );
+            });
+      },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: GridTile(

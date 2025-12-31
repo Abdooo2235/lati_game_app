@@ -58,7 +58,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCFrf2XW5Mv8jbvyTNf4KS3HHrVVNJTWbY',
-    appId: '1:637297847938:android:ffa41600803aecb290ce9b',
+    appId: '1:637297847938:android:8e1741332d9d67b290ce9b',
     messagingSenderId: '637297847938',
     projectId: 'lati-games-30041',
     storageBucket: 'lati-games-30041.appspot.com',
@@ -73,4 +73,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'lati-games-30041.appspot.com',
     measurementId: 'G-B7X2RFWKH8',
   );
+
 }

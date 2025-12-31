@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Image.asset(
-          "assets/GameTime.png",
+          "assets/gamifyLogo_R.png",
           width: size.width * 0.66,
         ),
       ),
